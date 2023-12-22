@@ -1,10 +1,11 @@
 import { Router } from "express"
 import * as usersController from '../controllers/users'
+import { checkJwt } from "../middleware/session"
 
 const router = Router()
 
 router
-    .get("/", usersController.getAll)
+    .get("/", checkJwt, usersController.getAll)
     .get("/:id", usersController.get)
     .post("/", usersController.create)
     .patch("/:id", usersController.update)

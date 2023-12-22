@@ -9,8 +9,9 @@ const generateToken = (user: Usuario) => {
     return jwt
 }
 
-const veryfyToken = async (jwt: string) => {
-    
+const veryfyToken = (jwt: string) => {
+    const isOk = verify(jwt, JWT_SECRET)
+    return isOk
 }
 
 export {
