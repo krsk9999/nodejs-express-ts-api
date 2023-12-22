@@ -9,7 +9,7 @@ export interface USUARIOAttributes {
   ID: number;
   USER: string;
   NAME: string;
-  PASSWORD: any;
+  PASSWORD: string;
   STATUS: boolean;
   CREATEDDATE: Date;
   rol?: number;
@@ -26,7 +26,7 @@ export class USUARIO extends Model<USUARIOAttributes, USUARIOCreationAttributes>
   ID!: number;
   USER!: string;
   NAME!: string;
-  PASSWORD!: any;
+  PASSWORD!: string;
   STATUS!: boolean;
   CREATEDDATE!: Date;
   rol?: number;
@@ -82,70 +82,70 @@ export class USUARIO extends Model<USUARIOAttributes, USUARIOCreationAttributes>
 
   static initModel(sequelize: Sequelize.Sequelize): typeof USUARIO {
     return USUARIO.init({
-    ID: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    USER: {
-      type: DataTypes.STRING(20),
-      allowNull: false
-    },
-    NAME: {
-      type: DataTypes.STRING(50),
-      allowNull: false
-    },
-    PASSWORD: {
-      type: DataTypes.BLOB,
-      allowNull: false
-    },
-    STATUS: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false
-    },
-    CREATEDDATE: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: Sequelize.Sequelize.fn('getdate')
-    },
-    rol: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'Rol',
-        key: 'ID'
-      }
-    },
-    UsuarioModificacion: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'USUARIO',
-        key: 'ID'
-      }
-    },
-    FechaModificacion: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: Sequelize.Sequelize.fn('getdate')
-    }
-  }, {
-    sequelize,
-    tableName: 'USUARIO',
-    schema: 'dbo',
-    hasTrigger: true,
-    timestamps: false,
-    indexes: [
-      {
-        name: "PK_ID",
-        unique: true,
-        fields: [
-          { name: "ID" },
-        ]
+      ID: {
+        autoIncrement: true,
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true
       },
-    ]
-  });
+      USER: {
+        type: DataTypes.STRING(20),
+        allowNull: false
+      },
+      NAME: {
+        type: DataTypes.STRING(50),
+        allowNull: false
+      },
+      PASSWORD: {
+        type: DataTypes.STRING(4000),
+        allowNull: false
+      },
+      STATUS: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+      },
+      CREATEDDATE: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.Sequelize.fn('getdate')
+      },
+      rol: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'Rol',
+          key: 'ID'
+        }
+      },
+      UsuarioModificacion: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'USUARIO',
+          key: 'ID'
+        }
+      },
+      FechaModificacion: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.Sequelize.fn('getdate')
+      }
+    }, {
+      sequelize,
+      tableName: 'USUARIO',
+      schema: 'dbo',
+      hasTrigger: true,
+      timestamps: false,
+      indexes: [
+        {
+          name: "PK_ID",
+          unique: true,
+          fields: [
+            { name: "ID" },
+          ]
+        },
+      ]
+    });
   }
 }

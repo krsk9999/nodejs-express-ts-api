@@ -106,7 +106,7 @@ function initModels(sequelize: Sequelize) {
     Respaldos: Respaldos,
     Rol: Rol,
     Rol_Permiso: Rol_Permiso,
-    Usuario: USUARIO,
+    USUARIO: USUARIO,
   };
 }
 

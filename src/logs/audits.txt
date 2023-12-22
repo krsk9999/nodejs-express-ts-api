@@ -1,0 +1,6 @@
+[{"user":{"USER":"testnotfound","PASSWORD":"j"},"message":"USER_NOT_FOUND"}]
+[{"user":{"USER":"testnotfound","PASSWORD":"j"},"message":"USER_NOT_FOUND"}]
+[{"user":{"USER":"testnotfound","PASSWORD":"j"},"message":"USER_NOT_FOUND"}]
+[{"user":{"USER":"testnotfound","PASSWORD":"j"},"message":"USER_NOT_FOUND"}]
+[{"user":{"USER":"testnotfound","PASSWORD":"j"},"message":"USER_NOT_FOUND"}]
+[{"user":{"USER":"jsanabria","PASSWORD":"k"},"message":"INVALID_PASSWORD"}]
