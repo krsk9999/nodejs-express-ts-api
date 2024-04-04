@@ -6,9 +6,9 @@ const router = Router()
 
 router
     .get("/", checkJwt, usersController.getAll)
-    .get("/:id", usersController.get)
-    .post("/", usersController.create)
-    .patch("/:id", usersController.update)
-    .delete("/:id", usersController.remove)
+    .get("/:id", checkJwt, usersController.get)
+    .post("/", checkJwt, usersController.create)
+    .patch("/:id", checkJwt, usersController.update)
+    .delete("/:id", checkJwt, usersController.remove)
 
 export { router }

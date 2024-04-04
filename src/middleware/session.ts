@@ -4,9 +4,9 @@ import { veryfyToken } from "../utils/token.handle"
 const checkJwt = (req: Request, res: Response, next: NextFunction) => {
     try {
         const jwtByUser = `${req.headers?.authorization}`
-        const jwt = jwtByUser.split(' ').pop
+        const jwt = jwtByUser.split(' ').pop()
         const isOk = veryfyToken(`${jwt}`)
-        if (isOk) {
+        if (!isOk) {
             res.status(401).send("INVALID_SESSION_TOKEN")
         }else{
             next()

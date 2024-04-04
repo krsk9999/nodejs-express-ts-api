@@ -131,6 +131,8 @@ dist
 .pnp.*
 
 .DS_Store
-=======
 node_modules
->>>>>>> e1cd721 (Adding first draft of ts)
+
+.idea/
+
+package-lock.json
