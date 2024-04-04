@@ -7,8 +7,7 @@ const registerNewUser = async (user: Usuario) => {
     const existingUser = await Usuario.findOne({ where: { USER: USER } })
     if (existingUser) return { user: user, message: "USER_ALREADY_EXISTS", error: true }
     const passwordHash = await encrypt(PASSWORD)
-    const registeredNewUser = await Usuario.create({ USER, NAME, PASSWORD: passwordHash })
-    return registeredNewUser
+    return await Usuario.create({ USER, NAME, PASSWORD: passwordHash })
 }
 
 const loginUser = async (user: Usuario) => {
